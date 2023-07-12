@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+:root {
+    --bgColor: #3e3f46;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.mainPage {
+    height: 100%;
+    width: 100%;
+    background-color: var(--bgColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonForm {
+    position: relative;
+    height: 400px;
+    width: 300px;
+    /* background-color: red; */
+    transform: skewY(-20px);
+}
+
+.iconBtnBox {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.iconBtnBox::before {
+    position: absolute;
+    bottom: -100px;
+    left: 75px;
+    content: "";
+    height: 25px;
+    width: 150px;
+    background-color: transparent;
+    opacity: .5;
+    transform: skewX(45deg);
+    border-radius: 2px;
+    filter: blur(5px);
+    transition: .5s;
+}
+
+.wordF {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.vertical, 
+.horizontal1, 
+.horizontal2, 
+.horizontal3, 
+.horizontal4,
+.side {
+    position: absolute;
+    top: 0;
+    height: 50px;
+    width: 150px;
+    background-color: transparent;
+    transform: rotateX(90deg) translateY(600px);
+    transition: .5s;
+}
+
+.defaultBtn {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: fit-content;
+    width: 100%;
+}
+
+.top {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    background-color: transparent;
+    transform: rotateX(90deg);
+    transition: .5s;
+}
+
+.left {
+    position: absolute;
+    top: 0;
+    left: -50px;
+    height: 80px;
+    width: 50px;
+    transform: rotateY(90deg);
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+}
+
+.left > i {
+    color: blue;
+    font-size: 24px;
+}
+
+.Btn {
+    user-select: none;
+    letter-spacing: 2px;
+    height: 80px;
+    width: 100%;
+    background-color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-transform: uppercase;
+    color: white;
+    font-size: 32px;
+    border-radius: 10px;
+    font-weight: bolder;
+    transition: .5s;
+    box-shadow: -10px -10px 5px #555555, 10px 10px 5px black;
+}
+
+.Btn:hover{
+    cursor: pointer;
+    background-color: #444444;
+    text-shadow: 5px 5px 2px black;
+    box-shadow: inset -10px -10px 5px #555555, inset 10px 10px 5px black;
+}
+
+/* ACTIVE */
+.buttonForm.active .top {
+    background-color: #3030ff !important;
+    transform-origin: bottom;
+    transform: skewX(45deg);
+}
+
+.buttonForm.active .left {
+    background-color: #0000c4;
+    transform-origin: right;
+    transform: skewY(45deg);
+}
+
+.buttonForm.active .left > i {
+    color: white !important;
+}
+
+.buttonForm.active .Btn {
+    border-radius: 0;
+    background-color: blue;
+    box-shadow: unset;
+    color: white;
+}
+
+.buttonForm.active .Btn:hover {
+    cursor: pointer;
+    background-color: blue;
+    text-shadow: 0 0 5px white;
+    box-shadow: unset;    
+}
+
+.buttonForm.active .shadowBtn {
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    background-color: #2b2bff;
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    filter: blur(10px);
+    transition: .5s;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 5px #4242ff;
+}
+
+.buttonForm.active .wordF {
+    animation: animateIcon 1s ease-in-out 2.75s infinite alternate ;
+}
+
+.buttonForm.active .vertical {
+    position: absolute;
+    z-index: 2;
+    height: 250px;
+    width: 50px;
+    background-color: blue;
+    transform: none;
+    transform-origin: none;
+    transition-delay: .5s;
+}
+
+.buttonForm.active .horizontal1 {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 150px;
+    height: 25px;
+    background-color: #3030ff;
+    transform-origin: bottom;
+    transform: skewX(45deg) !important;
+    transition-delay: .75s;
+}
+
+.buttonForm.active .horizontal2 {
+    position: absolute;
+    top: 0;
+    left: 50px;
+    width: 100px;
+    height: 50px;
+    background-color: blue;
+    transform: none;
+    transform-origin: none;
+    transition-delay: 1s;
+}
+
+.buttonForm.active .horizontal3 {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    width: 100px;
+    height: 50px;
+    background-color: blue;
+    transform: none;
+    transform-origin: none;
+    transition-delay: 1.25s;
+}
+
+.buttonForm.active .horizontal4 {
+    z-index: 1;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    width: 100px;
+    height: 25px;
+    background-color: #0909c9;
+    transform-origin: bottom;
+    transform: translateY(-100%) skewX(45deg) !important;
+    transition-delay: 1.5s;
+}
+
+.buttonForm.active .side {
+    position: absolute;
+    top: 0;
+    left: -25px;
+    height: 250px;
+    width: 25px;
+    background-color: #0000c4;
+    transform-origin: right;
+    transform: skewY(45deg) !important;
+    transition-delay: 1.75s;
+}
+
+.buttonForm.active .iconBtnBox::before {
+    background-color: black;
+    transition-delay: 2.75s;
+    animation: animatieShadow 1s ease-in-out 2.75s infinite alternate;
+}
+
+@keyframes animateIcon {
+    to {
+        top: 20px;
+    }
+}
+
+@keyframes animatieShadow {
+    to {
+        transform: skewX(45deg) scale(.9);
+    }
+}
